@@ -1,18 +1,27 @@
-CREATE DATABASE term;
-USE term;
+DROP TABLE IF EXISTS Mainpage;
 
-DROP TABLE IF EXISTS Main;
+CREATE TABLE mainpage (
+	id INT(7),
+	name CHAR(20),
+	price DECIMAL(7,2),
+	quantity INT(3),
+	PRIMARY KEY (id)
+);
 
-CREATE TABLE Main (
-	id INT(8),
-	name CHAR(20), 
-	price FLOAT, 
-	quantity INT(3), 
-)
+DROP TABLE IF EXISTS Cart;
 
 CREATE TABLE Cart (
-	id INT(8),
+	id INT(7),
 	name CHAR(20),
-	price FLOAT,
+	price DECIMAL(7,2),
 	quantity INT(3),
+	PRIMARY KEY (id)
 )
+
+INSERT INTO mainpage VALUES
+(0000001, 'Blender', 45.67, 21),
+(0000002, 'iPhone', 997.45, 345);
+
+INSERT INTO Cart VALUES
+(0000001, 'Blender', 45.67, 0),
+(0000002, 'iPhone', 997.45, 0);
