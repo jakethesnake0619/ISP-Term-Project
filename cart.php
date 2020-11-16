@@ -7,39 +7,62 @@
 </head>
 
 <body>
-  <form action = "http://localhost/isp/cart.php"
-        method = "post">
 
 <h1> Shopping Cart </h1>
+
 <?php
   $db = mysqli_connect("localhost", "root", "", "term2");
 
-  $query = "SELECT * FROM cart";
-  $result = mysqli_query($db,$query);
-
-  echo "<table>";
-  echo "<tr><td> ID </td>" . "<td> Product Name </td>" . "<td> Price </td>" . "<td> Quantity </td> <td> Action </td></tr>";
-  while($row = mysqli_fetch_array($result)) {
-    echo "<tr><td>" . $row['id'] . "</td>
-    <td>" .  $row['name'] . "</td>
-    <td>"  .  $row['price'] . "</td>
-    <td>"  .  $row['quantity'] . "</td>
-    <td><input type = 'submit' value = 'Remove from Cart' name = 'remove'> </td>" ."</tr>";
+  $cartpage = mysqli_query($db, "SELECT id FROM cart ORDER BY id");
+  while($row = $cartpage->fetch_assoc()) {
+    if(isset($_GET[$row["id"]])) {
+      mysqli_query($db, "UPDATE cart SET quantity = quantity - 1 WHERE id = " . $row["id"] . ";");
+      mysqli_query($db, "UPDATE main SET quantity = quantity + 1 WHERE id = " . $row["id"] . ";");
+    }
   }
 
-  echo "</table>";
+  $cartpage = mysqli_query($db, "SELECT * FROM cart ORDER BY ID");
+  print '<form action = "http://localhost/isp/cart.php" method = "get">';
+  print "<table class = 'center'>";
+  ?>
+  <th> Product Name </th>
+  <th> Price </th>
+  <th> Quantity </th>
+  <th> Action </th>
 
-  if(array_key_exists('remove' , $_POST)) {
-    removeItem();
+  <?php
+  while($row = $cartpage->fetch_assoc()) {
+    if($row["quantity"] > 0) {
+      print "<tr>";
+      print "<td>" . $row["name"] . "</td>";
+      print "<td>" . "$" . $row["price"] . "</td>";
+      print "<td>" . $row["quantity"] . "</td>";
+      print "<td>";
+      print '<div id = "sub"><input type = "submit" value = "Remove From Cart" name = "' . $row["id"] . '"/> </div>';
+      print " </td>";
+      print "</tr>";
+    }
   }
 
-  function removeItem(){
-      
-  }
 
-?>
-<br>
+
+    $cartpage = mysqli_query($db, "SELECT * FROM cart ORDER BY ID");
+    print '<div id = "all"><input type = "submit" value = "Remove All" name = "all"> </div>';
+    if(isset($_GET["all"])) {
+      while($row = $cartpage->fetch_assoc()) {
+        $quant = $row['quantity'];
+          mysqli_query($db, "UPDATE cart SET quantity = quantity - $quant WHERE id =" . $row["id"] . ";");
+          mysqli_query($db, "UPDATE main SET quantity = quantity + $quant WHERE id =" . $row["id"] . ";");
+        }
+        header("Location: http://localhost/isp/cart.php");
+    }
+    print "</table";
+    print "</form>";
+    ?>
+
+
 
 </body>
 </html>
+
 
