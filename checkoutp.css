@@ -1,0 +1,46 @@
+body
+{
+  justify-content: center;
+  text-align: center;
+
+}
+
+.center{
+    text-align: center;
+    font-size: 50px;
+    background-color: grey;
+}
+
+.salesum{
+    
+    display: flex;
+    
+    justify-content: center;
+    
+}
+
+#user-info{
+    width:50%;
+}
+
+#checkoutform label{
+    font-size: 20px;
+    text-align: left
+    
+}
+
+#summaryt{
+    border-style:solid;
+}
+
+#user-info{
+    border-style:solid;
+}
+
+.confirmation{
+    font-size: 100px;
+}
+
+#order-recieved{
+    font-size: 50px;
+}
