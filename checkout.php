@@ -26,7 +26,7 @@
     
     if(mysqli_query($db,$push))
     {
-        header('Location : confirmation.php');
+        header('Location: confirmation.php');
     }
     else
     {
