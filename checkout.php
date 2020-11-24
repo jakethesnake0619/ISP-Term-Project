@@ -66,7 +66,7 @@
                 <br/>
             </form>
         </div>
-        <div id = "summaryt">
+         <div id = "summaryt">
             <h1>Summary</h1>
             <table class = "summary_table">
                 <tr>
@@ -74,13 +74,18 @@
                 <th>Qty</th>
                 <th>Subtotal</th>
                 </tr>
-                <?php foreach($results as $item):?>
-                    <tr> 
-                        <td><?php echo $item['name'];?></td>
-                        <td><?php echo 'x'.$item['quantity'];?></td>
-                        <td><?php echo '$'.($item['quantity']*$item['price']);?></td>
-                    </tr>
-                <?php endforeach ?>  
+                <?php  if(sizeof($results)!=0):?>
+                    <?php foreach($results as $item):?>
+                        
+                        <tr> 
+                            <td><?php echo $item['name'];?></td>
+                            <td><?php echo 'x'.$item['quantity'];?></td>
+                            <td><?php echo '$'.($item['quantity']*$item['price']);?></td>
+                        </tr>
+                    <?php endforeach ?>  
+                    <?php else:?>
+                        <td>Empty Cart</td>
+                    <?php endif;?>
                 
                 <tr>
                     <th>Total</th>
@@ -92,7 +97,6 @@
         </div>
     </div>
 </body>
-
 
 
 
