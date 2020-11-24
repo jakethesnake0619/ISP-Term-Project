@@ -26,6 +26,8 @@
     
     if(mysqli_query($db,$push))
     {
+        $removeq = "UPDATE cart SET quantity =0;";
+        mysqli_query($db,$removeq);
         header('Location: confirmation.php');
     }
     else
