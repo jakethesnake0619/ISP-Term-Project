@@ -101,6 +101,18 @@ span:hover
 {
     background-color: lightblue;
 }
+
+.removeAll
+{
+  background-color: lightGray;
+  border: 2px solid black;
+  border-radius: 15px;
+}
+
+.removeAll:hover
+{
+  background-color: red;
+}
 .carth1
 {
     padding-top: 45px;
