@@ -62,11 +62,7 @@
     $cartpage = mysqli_query($db, "SELECT * FROM cart ORDER BY ID");
     print '<input type = "submit" class = "removeAll" value = "Remove All" name = "all">';
     if(isset($_GET["all"])) {
-      while($row = $cartpage->fetch_assoc()) {
-       mysqli_query($db, "UPDATE mainpage SET quantity = quantity + " . $row['quantity'] . " WHERE id =" . $row["id"] . ";");
-          mysqli_query($db, "UPDATE cart SET quantity = 0 WHERE id =" . $row["id"] . ";");
-      }
-      header("Location: http://localhost/isp/cart2.php");
+      header("Location: http://localhost/isp/removeall.php");
         }
 
 
