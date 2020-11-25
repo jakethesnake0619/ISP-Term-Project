@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-
-<?php 
-    $conn;
-    $sqlrequest;
-    $result;
-?>
-
 <html>
-    <header>
-        <title> shopping spree</title>
-        <nav>  
-            <h1 class = "heads"><a href= "main.php"> The main Shop</a></h1>
-            <p class= "heads"><a href = "cart.php"> view cart</a></p>
-        </nav>
-    </header>
+<head>
+	<link rel="stylesheet" type="text/css" href="/style.css"/>
+</head>
+<header>
+    <title> shopping spree</title>
+    <div class = "navbar">
+    	<table id = "headertable"> 
+    		<tr id = "headerrow">
+    			<td id = "headercell"><a href = "http://localhost/isp/prj/prj.php">Main</a></td>
+    			<td id = "headercell"><a href = "http://localhost/isp/prj/cart.php">Cart</a></td>
+    		</tr>
+    	</table>
+    </div>
+</header>
+</html>
