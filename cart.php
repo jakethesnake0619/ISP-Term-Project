@@ -52,23 +52,19 @@
         }
     }
 
-    print "</table>";
+    print "</table><br/>";
 
     $cartpage = mysqli_query($db, "SELECT * FROM cart ORDER BY ID");
-    print '<input type = "submit" value = "Remove All" name = "all">';
+    print '<input type = "submit" class = "removeAll" value = "Remove All" name = "all">';
     if(isset($_GET["all"])) {
-        while($row = $cartpage->fetch_assoc()) {
-            mysqli_query($db, "UPDATE mainpage SET quantity = quantity + " . $row['quantity'] . " WHERE id =" . $row["id"] . ";");
-            mysqli_query($db, "UPDATE cart SET quantity = 0 WHERE id =" . $row["id"] . ";");
-        }
-        header("Location: http://localhost/isp/prj/cart.php");
+        header("Location: http://localhost/isp/prj/removeall.php");
     }    
     print "</form>";
 ?>
 <br>
 
 <form action = "http://localhost/isp/prj/checkout.php" method = "get">
-    <input type = "submit" value = "Checkout"/>
+    <input type = "submit" class = "checkout" value = "Checkout"/>
 </form>
 
 <br/><br/><br/>
