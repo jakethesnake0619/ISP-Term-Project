@@ -33,8 +33,8 @@ body
 }
 img
 {
-	width: 100px;
-	height: 100px;
+    width: 100px;
+    height: 100px;
 }
 .description
 {
@@ -101,17 +101,25 @@ span:hover
 {
     background-color: lightblue;
 }
-
 .removeAll
 {
-  background-color: lightGray;
-  border: 2px solid black;
-  border-radius: 15px;
+    background-color: lightGray;
+    border: 2px solid black;
+    border-radius: 15px;
 }
-
 .removeAll:hover
 {
-  background-color: red;
+    background-color: #fa5f79;
+}
+.checkout
+{
+    background-color: lightGray;
+    border: 2px solid black;
+    border-radius: 15px;
+}
+.checkout:hover
+{
+    background-color: lightgreen;
 }
 .carth1
 {
@@ -139,14 +147,12 @@ span:hover
     text-align: center;
     font-size: 50px;
     background-color: grey;
+    padding-top: 42px;
 }
 
 .salesum{
-    
     display: flex;
-    
     justify-content: center;
-    
 }
 
 #user-info{
