@@ -11,6 +11,7 @@
 <body>
 <br/>
 <br/>
+<h1>Store Page</h1>
 <?php
 	$db = mysqli_connect("localhost:3306", "root", "", "isp");
 
@@ -32,7 +33,7 @@
         <th> Description </th>
         <th> Price </th>
         <th> Quantity </th>
-        <th> Add To Cart </th>
+        <th> Action </th>
 	<?php
 	while($row = $mainpage->fetch_assoc()) {
 		if($row["quantity"] > 0) {
